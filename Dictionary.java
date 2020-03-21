@@ -108,21 +108,16 @@ public class Dictionary implements DictionaryInterface{
     // pre: lookup(key)!=null
     public void delete(String key) throws KeyNotFoundException {
         if(lookup(key) != null) {
-            //System.out.println("lookup was not null");
             Node P = head;
             Node N = head.next;
             for(;N != null;N = N.next){
-                //System.out.println("in for loop");
                 if(P.pair.key == key) {
-                    //System.out.println("P/head matched the key");
                     head = P.next;
                     P.next = null;
                     break;
                 }
                 if(N.pair.key == key) {
-                    //System.out.println("N matched the key");
                     if(N == tail) {
-                        //System.out.println("N equals teh tail");
                         tail = P;
                         P.next = null;
                         break;
